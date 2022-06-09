@@ -7,7 +7,10 @@ The extra functionality allows you to configure the following settings separatel
 
 - Moneybird workflow;
 - Invoice style;
-- Revenue ledger account.
+- Revenue ledger account;
+- Register invoice payments.
+
+![Screenshot of extra settings](screenshot.png?raw=true "Screenshot of extra settings")
 
 To use this plugin you first need to have the [WooCommerce Moneybird API plugin](https://extensiontree.com/nl/producten/woocommerce-extensies/moneybird-api-koppeling/) installed and activated.
 

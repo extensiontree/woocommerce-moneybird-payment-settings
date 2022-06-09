@@ -23,6 +23,7 @@ class WC_MoneyBird_PDS extends WC_MoneyBird2 {
                 $this->form_fields['workflow_id_'.$code] = array('type' => 'hidden');
                 $this->form_fields['document_style_id_'.$code] = array('type' => 'hidden');
                 $this->form_fields['revenue_ledger_account_id_'.$code] = array('type' => 'hidden');
+                $this->form_fields['register_payment_'.$code] = array('type' => 'hidden');
             }
         }
     }
@@ -37,19 +38,26 @@ class WC_MoneyBird_PDS extends WC_MoneyBird2 {
 
         foreach ($payment_gateways as $code => $gateway) {
             $this->form_fields['workflow_id_'.$code] = array(
-                'title'             => 'Workflow ['.$gateway->title .']',
+                'title'             => $gateway->title . ' - Workflow',
                 'type'              => 'select',
                 'options'           => $this->form_fields['workflow_id']['options']
             );
             $this->form_fields['document_style_id_'.$code] = array(
-                'title'             => 'Huisstijl ['.$gateway->title .']',
+                'title'             => $gateway->title . ' - Huisstijl',
                 'type'              => 'select',
                 'options'           => $this->form_fields['document_style_id']['options']
             );
             $this->form_fields['revenue_ledger_account_id_'.$code] = array(
-                'title'             => 'Omzetcategorie ['.$gateway->title .']',
+                'title'             => $gateway->title . ' - Omzetcategorie',
                 'type'              => 'select',
                 'options'           => $this->form_fields['products_ledger_account_id']['options']
+            );
+            $this->form_fields['register_payment_'.$code] = array(
+                'title'             => $gateway->title . ' - ' . __('Register payments', 'woocommerce_moneybird'),
+                'label'             => __('Automatically mark Moneybird invoice as paid if the WooCommerce order is paid.', 'woocommerce_moneybird'),
+                'type'              => 'select',
+                'options'           => array('' => __('Follow global setting'), 'no' => __('No'), 'yes' => __('Yes')),
+                'default'           => ''
             );
         }
 

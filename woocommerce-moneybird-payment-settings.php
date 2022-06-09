@@ -2,7 +2,7 @@
 /*
 Plugin Name: Moneybird API integration [Payment method dependent settings]
 Plugin URI: https://extensiontree.com/nl/producten/woocommerce-extensies/moneybird-api-koppeling/
-Version: 1.1.0
+Version: 1.2.0
 Author: ExtensionTree.com
 Author URI: https://extensiontree.com
 Description: Adds payment method specific settings to the Moneybird API integration plugin.
@@ -76,5 +76,26 @@ if (is_plugin_active( 'woocommerce/woocommerce.php')) {
     }
 
     add_filter('woocommerce_moneybird_invoice', 'modify_invoice_based_on_payment_gateway', 10, 2);
+
+
+    function wcmb_pds_maybe_block_payment($register_payment, $order) {
+        $gateway = $order->get_payment_method();
+        if (!$gateway) {
+            return $register_payment;
+        }
+        $wcmb = WCMB();
+        if (isset($wcmb->settings['register_payment_'.$gateway])) {
+            $register = $wcmb->settings['register_payment_'.$gateway];
+            if ($register == 'yes') {
+                $register_payment = true;
+            } elseif ($register == 'no') {
+                $register_payment = false;
+            }
+        }
+
+        return $register_payment;
+    }
+
+    add_filter('woocommerce_moneybird_register_payment', 'wcmb_pds_maybe_block_payment', 10, 2);
 
 } // if woocommerce active
