@@ -1,0 +1,5 @@
+*.zip
+composer.lock
+.idea
+.env
+.dev

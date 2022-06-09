@@ -1,0 +1,1 @@
+docker run --rm -v $(pwd):/plugin registry.gitlab.com/extensiontree/releaser:latest ./build.sh $@
