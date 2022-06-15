@@ -1,3 +1,8 @@
+### v1.2.1
+
+- Fix: only activate if main Moneybird plugin is active to prevent errors during updates.
+
+
 ### v1.2.0
 
 - Improvement: add option to suppress payment registration.
