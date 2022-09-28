@@ -24,6 +24,7 @@ class WC_MoneyBird_PDS extends WC_MoneyBird2 {
                 $this->form_fields['document_style_id_'.$code] = array('type' => 'hidden');
                 $this->form_fields['revenue_ledger_account_id_'.$code] = array('type' => 'hidden');
                 $this->form_fields['register_payment_'.$code] = array('type' => 'hidden');
+                $this->form_fields['send_invoice_'.$code] = array('type' => 'hidden');
             }
         }
     }
@@ -57,6 +58,14 @@ class WC_MoneyBird_PDS extends WC_MoneyBird2 {
                 'label'             => __('Automatically mark Moneybird invoice as paid if the WooCommerce order is paid.', 'woocommerce_moneybird'),
                 'type'              => 'select',
                 'options'           => array('' => __('Follow global setting'), 'no' => __('No'), 'yes' => __('Yes')),
+                'default'           => ''
+            );
+            $this->form_fields['send_invoice_'.$code] = array(
+                'title'             => $gateway->title . ' - ' . $this->form_fields['send_invoice']['title'],
+                'description'       => $this->form_fields['send_invoice']['description'],
+                'desc_tip'          => true,
+                'type'              => 'select',
+                'options'           => array_merge(array('' => __('Follow global setting')), $this->form_fields['send_invoice']['options']),
                 'default'           => ''
             );
         }

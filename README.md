@@ -8,7 +8,8 @@ The extra functionality allows you to configure the following settings separatel
 - Moneybird workflow;
 - Invoice style;
 - Revenue ledger account;
-- Register invoice payments.
+- Register invoice payments;
+- Invoice sending.
 
 ![Screenshot of extra settings](screenshot.png?raw=true "Screenshot of extra settings")
 

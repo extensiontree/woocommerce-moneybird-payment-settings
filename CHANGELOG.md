@@ -1,3 +1,8 @@
+### v1.3.0
+
+- Improvement: add invoice sending setting.
+
+
 ### v1.2.1
 
 - Fix: only activate if main Moneybird plugin is active to prevent errors during updates.
