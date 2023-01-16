@@ -1,3 +1,8 @@
+### v1.4.0
+
+- Fix: never override credit invoice settings.
+
+
 ### v1.3.0
 
 - Improvement: add invoice sending setting.

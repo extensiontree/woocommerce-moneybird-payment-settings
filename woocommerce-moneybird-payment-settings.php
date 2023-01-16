@@ -2,14 +2,14 @@
 /*
 Plugin Name: Moneybird API integration [Payment method dependent settings]
 Plugin URI: https://extensiontree.com/nl/producten/woocommerce-extensies/moneybird-api-koppeling/
-Version: 1.3.0
+Version: 1.4.0
 Author: ExtensionTree.com
 Author URI: https://extensiontree.com
 Description: Adds payment method specific settings to the Moneybird API integration plugin.
 Requires at least: 4.4
-Tested up to: 6.0
+Tested up to: 6.1
 WC requires at least: 2.2
-WC tested up to: 6.9
+WC tested up to: 7.3
 */
 
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
@@ -79,6 +79,10 @@ if (is_plugin_active( 'woocommerce-moneybird/woocommerce-moneybird.php')) {
 
 
     function wcmb_pds_maybe_block_payment($register_payment, $order) {
+        $order_type = is_callable(array($order, 'get_type')) ? $order->get_type() : 'shop_order';
+        if ($order_type == 'shop_order_refund') {
+            return $register_payment;
+        }
         $gateway = $order->get_payment_method();
         if (!$gateway) {
             return $register_payment;
@@ -101,8 +105,11 @@ if (is_plugin_active( 'woocommerce-moneybird/woocommerce-moneybird.php')) {
 
     function wcmb_pds_modify_sendmode($sendmode, $order, $saved_invoice) {
         $order_type = is_callable(array($order, 'get_type')) ? $order->get_type() : 'shop_order';
+        if ($order_type == 'shop_order_refund') {
+            return $sendmode;
+        }
         $gateway = $order->get_payment_method();
-        if (!$gateway || ($order_type == 'shop_order_refund')) {
+        if (!$gateway) {
             return $sendmode;
         }
         $wcmb = WCMB();
