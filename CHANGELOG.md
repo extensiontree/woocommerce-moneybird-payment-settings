@@ -1,3 +1,9 @@
+### v1.4.1
+
+- Improvement: declare plugin as HPOS compatible.
+- Mark as tested up to WordPress 6.4 and WooCommerce 8.4.
+
+
 ### v1.4.0
 
 - Fix: never override credit invoice settings.
