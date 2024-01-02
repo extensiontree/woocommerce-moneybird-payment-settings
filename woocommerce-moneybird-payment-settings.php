@@ -2,7 +2,7 @@
 /*
 Plugin Name: Moneybird API integration [Payment method dependent settings]
 Plugin URI: https://extensiontree.com/nl/producten/woocommerce-extensies/moneybird-api-koppeling/
-Version: 1.4.1
+Version: 1.5.0
 Author: ExtensionTree.com
 Author URI: https://extensiontree.com
 Description: Adds payment method specific settings to the Moneybird API integration plugin.
@@ -15,6 +15,14 @@ WC tested up to: 8.4
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
 
 include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+require 'plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+PucFactory::buildUpdateChecker(
+	'https://github.com/extensiontree/woocommerce-moneybird-payment-settings/',
+	__FILE__,
+	'woocommerce-moneybird-payment-settings'
+);
 
 add_action('before_woocommerce_init', function () {
     if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {

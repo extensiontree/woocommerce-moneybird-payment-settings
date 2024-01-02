@@ -1,3 +1,8 @@
+### v1.5.0
+
+- Improvement: add plugin update checker to enable (automatic) updates from WP dashboard.
+
+
 ### v1.4.1
 
 - Improvement: declare plugin as HPOS compatible.

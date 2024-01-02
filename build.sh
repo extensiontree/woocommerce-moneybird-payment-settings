@@ -31,6 +31,7 @@ mkdir /tmp/$EXTNAME
 
 cp ./*.md /tmp/$EXTNAME/
 cp ./*.php /tmp/$EXTNAME/
+cp -r plugin-update-checker /tmp/$EXTNAME/
 
 # Create zip
 cd /tmp; zip -r -q $EXTROOT/$EXTNAME.zip $EXTNAME
