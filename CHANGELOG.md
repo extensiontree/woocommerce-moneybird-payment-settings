@@ -1,3 +1,8 @@
+### v1.5.1
+
+- Mark as tested up to WordPress 6.5 and WooCommerce 9.1.
+
+
 ### v1.5.0
 
 - Improvement: add plugin update checker to enable (automatic) updates from WP dashboard.
