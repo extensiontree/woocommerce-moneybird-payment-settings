@@ -1,3 +1,9 @@
+### v1.5.2
+
+- Fix: gracefully handle case in which WC_Order::get_payment_method is not available/callable.
+- Mark as tested up to WordPress 6.6 and WooCommerce 9.2.
+
+
 ### v1.5.1
 
 - Mark as tested up to WordPress 6.5 and WooCommerce 9.1.
