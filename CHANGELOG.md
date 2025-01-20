@@ -1,3 +1,10 @@
+### v1.5.3
+
+- Update plugin-update-checker library.
+- Prevent unnecessary code from being loaded on non-admin pages.
+- Mark as tested up to WordPress 6.7 and WooCommerce 9.5.
+
+
 ### v1.5.2
 
 - Fix: gracefully handle case in which WC_Order::get_payment_method is not available/callable.
