@@ -1,3 +1,8 @@
+### v1.5.4
+
+- Fix: use get_title() instead of title propertyto get the title of the payment gateway.
+
+
 ### v1.5.3
 
 - Update plugin-update-checker library.

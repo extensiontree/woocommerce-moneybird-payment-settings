@@ -39,29 +39,29 @@ class WC_MoneyBird_PDS extends WC_MoneyBird2 {
 
         foreach ($payment_gateways as $code => $gateway) {
             $this->form_fields['workflow_id_'.$code] = array(
-                'title'             => $gateway->title . ' - Workflow',
+                'title'             => $gateway->get_title() . ' - Workflow',
                 'type'              => 'select',
                 'options'           => $this->form_fields['workflow_id']['options']
             );
             $this->form_fields['document_style_id_'.$code] = array(
-                'title'             => $gateway->title . ' - Huisstijl',
+                'title'             => $gateway->get_title() . ' - Huisstijl',
                 'type'              => 'select',
                 'options'           => $this->form_fields['document_style_id']['options']
             );
             $this->form_fields['revenue_ledger_account_id_'.$code] = array(
-                'title'             => $gateway->title . ' - Omzetcategorie',
+                'title'             => $gateway->get_title() . ' - Omzetcategorie',
                 'type'              => 'select',
                 'options'           => $this->form_fields['products_ledger_account_id']['options']
             );
             $this->form_fields['register_payment_'.$code] = array(
-                'title'             => $gateway->title . ' - ' . __('Register payments', 'woocommerce_moneybird'),
+                'title'             => $gateway->get_title() . ' - ' . __('Register payments', 'woocommerce_moneybird'),
                 'label'             => __('Automatically mark Moneybird invoice as paid if the WooCommerce order is paid.', 'woocommerce_moneybird'),
                 'type'              => 'select',
                 'options'           => array('' => __('Follow global setting'), 'no' => __('No'), 'yes' => __('Yes')),
                 'default'           => ''
             );
             $this->form_fields['send_invoice_'.$code] = array(
-                'title'             => $gateway->title . ' - ' . $this->form_fields['send_invoice']['title'],
+                'title'             => $gateway->get_title() . ' - ' . $this->form_fields['send_invoice']['title'],
                 'description'       => $this->form_fields['send_invoice']['description'],
                 'desc_tip'          => true,
                 'type'              => 'select',
